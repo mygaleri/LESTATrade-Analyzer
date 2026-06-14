@@ -1,0 +1,97 @@
+FOREX ANALYZER - PROJECT STRUCTURE
+══════════════════════════════════════════════════════════════════════
+
+forex_analyzer/
+│
+├── lib/
+│   ├── main.dart                          # Entry point aplikasi
+│   │
+│   ├── models/
+│   │   ├── forex_pair.dart                # Model pair (EUR/USD, dll)
+│   │   ├── candle.dart                    # Model candle/OHLC
+│   │   ├── signal.dart                    # Model buy/sell signal
+│   │   ├── sentiment.dart                 # Model sentiment analysis
+│   │   └── economic_event.dart            # Model economic calendar
+│   │
+│   ├── services/
+│   │   ├── api/
+│   │   │   ├── broker_api.dart           # MetaTrader/Oanda integration
+│   │   │   ├── news_api.dart             # Finnhub, NewsAPI integration
+│   │   │   └── websocket_service.dart    # Real-time data streaming
+│   │   │
+│   │   ├── indicators/
+│   │   │   ├── technical_indicators.dart # RSI, MACD, BB, MA
+│   │   │   ├── signal_generator.dart     # Generate buy/sell signals
+│   │   │   └── calculations.dart         # Core math calculations
+│   │   │
+│   │   ├── sentiment/
+│   │   │   ├── sentiment_analyzer.dart   # Parse news sentiment
+│   │   │   └── sentiment_provider.dart   # Aggregate sentiment data
+│   │   │
+│   │   └── storage/
+│   │       ├── local_storage.dart        # SQLite/Hive untuk local cache
+│   │       └── preferences.dart          # User preferences
+│   │
+│   ├── providers/                         # State management (Provider)
+│   │   ├── forex_provider.dart
+│   │   ├── signals_provider.dart
+│   │   ├── sentiment_provider.dart
+│   │   └── economic_provider.dart
+│   │
+│   ├── screens/
+│   │   ├── home_screen.dart              # Dashboard utama
+│   │   ├── pair_detail_screen.dart       # Detail pair + chart
+│   │   ├── signals_screen.dart           # Daftar signals
+│   │   ├── sentiment_screen.dart         # Sentiment analysis
+│   │   ├── economic_calendar_screen.dart # Economic events
+│   │   └── settings_screen.dart          # Konfigurasi API
+│   │
+│   ├── widgets/
+│   │   ├── chart_widget.dart             # Chart candlestick
+│   │   ├── signal_card.dart              # Kartu signal
+│   │   ├── sentiment_gauge.dart          # Gauge sentiment
+│   │   ├── indicator_widget.dart         # Display indicator values
+│   │   └── price_alert_banner.dart       # Alert notifications
+│   │
+│   └── utils/
+│       ├── constants.dart                # API keys, constants
+│       ├── color_themes.dart             # Color schemes
+│       ├── date_formatter.dart           # Format dates/times
+│       └── number_formatter.dart         # Format prices
+│
+├── backend/                               # Backend service (Node.js)
+│   ├── server.js
+│   ├── package.json
+│   ├── routes/
+│   │   ├── forex.js                      # Routes untuk forex data
+│   │   ├── signals.js                    # Routes untuk signals
+│   │   └── sentiment.js                  # Routes untuk sentiment
+│   ├── controllers/
+│   │   ├── forexController.js
+│   │   ├── signalController.js
+│   │   └── sentimentController.js
+│   ├── services/
+│   │   ├── brokerService.js              # Broker API integration
+│   │   ├── newsService.js                # News API integration
+│   │   ├── indicatorService.js           # Technical indicators
+│   │   └── socketService.js              # WebSocket management
+│   ├── config/
+│   │   └── apiKeys.js                    # Store API credentials
+│   └── utils/
+│       ├── talib.js                      # Technical analysis calculations
+│       └── formatters.js                 # Data formatting
+│
+├── pubspec.yaml                           # Flutter dependencies
+├── .env                                   # Environment variables
+└── README.md
+
+═════════════════════════════════════════════════════════════════════
+
+TEKNOLOGI YANG DIGUNAKAN:
+- Frontend: Flutter (Dart)
+- Backend: Node.js/Express
+- Database: Firebase Realtime DB / MongoDB
+- Real-time: WebSockets
+- Charts: fl_chart
+- State Management: Provider
+- Local Storage: Hive/SQLite
